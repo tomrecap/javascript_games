@@ -55,14 +55,34 @@ Board.prototype.render = function () {
 
 Board.prototype.gameOver = function () {
   var head = this.snake.segments[0].slice();
+  var tail = this.snake.segments.slice(1);
 
-  if (head[0] < 0 || head[0] > 49 || head[1] < 0 || head[1] > 49) {
+  for (var i = 0; i < tail.length; i++) {
+    if (_.isEqual(head, tail[i])) { return true; };
+  };
+
+  if (head[0] < 0 ||
+    head[0] > 49 ||
+    head[1] < 0 ||
+    head[1] > 49) {
     return true;
   };
 
   return false;
 };
 
+Board.prototype.playTurn = function() {
+  this.snake.move();
+
+  if (board.gameOver()) {
+    alert("You Lose!");
+
+    clearInterval(this.intervalID);
+
+  } else {
+    this.render();
+  };
+};
 
 var board = new Board();
 
@@ -71,21 +91,11 @@ $(document).ready( function() {
   board.drawGrid();
   board.render();
 
-  $('body').on('click', function() {
+  key('up', function(){ board.snake.direction = "N" });
+  key('right', function(){ board.snake.direction = "E" });
+  key('down', function(){ board.snake.direction = "S" });
+  key('left', function(){ board.snake.direction = "W" });
 
-    key('up', function(){ board.snake.direction = "N" });
-    key('right', function(){ board.snake.direction = "E" });
-    key('down', function(){ board.snake.direction = "S" });
-    key('left', function(){ board.snake.direction = "W" });
+  board.intervalID = setInterval(board.playTurn.bind(board), 100);
 
-    board.snake.move();
-
-
-    if (board.gameOver()) {
-      alert("You Lose!");
-      $('body').off('click');
-    } else {
-      board.render();
-    };
-  })
 });
