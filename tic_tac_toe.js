@@ -1,13 +1,7 @@
 // NB: This doesn't include any AI.
 
-(function (root) {
-  var readline = require('readline');
-  var READER = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-
-  var TTT = root.TTT = (root.TTT || {});
+// (function (window) {
+  var TTT = window.TTT = (root.TTT || {});
 
   var Game = TTT.Game = function TT() {
     this.player = Game.marks[0];
@@ -176,7 +170,7 @@
       }
     });
   }
-})(this);
+// })(this);
 
 
 // First we instantiate a new object with the this.TTT.Game() constructor function.

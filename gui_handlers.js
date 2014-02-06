@@ -1,20 +1,12 @@
-// NB: This doesn't include any AI.
 
-(function (root) {
-  var readline = require('readline');
-  var READER = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
 
-  var TTT = root.TTT = (root.TTT || {});
 
-  var Game = TTT.Game = function TT() {
+  Game.marks = ["x", "o"];
+
+  function Game() {
     this.player = Game.marks[0];
     this.board = this.makeBoard();
   }
-
-  Game.marks = ["x", "o"];
 
   Game.prototype.diagonalWinner = function () {
     var game = this;
@@ -176,11 +168,46 @@
       }
     });
   }
-})(this);
+
+  var guiGame = new Game();
 
 
-// First we instantiate a new object with the this.TTT.Game() constructor function.
-var TTT = new this.TTT.Game();
+$(function(){
 
-// Then we enter the game's run loop.
-TTT.run();
+  first = $('.unclicked').first().data('cell');
+
+  var guiMove = function(cellNumber) {
+    var cellNumber = this//.data('cell');
+    alert(this);
+    // alert("cell number: " + cellNumber);
+  };
+
+  // $('.unclicked').on("click", this.guiMove );
+
+  $('.unclicked').on("click", function() {
+      var cellNumber = parseInt($(this).data('cell'));
+
+      var row = Math.floor(cellNumber / 3);
+      var column = cellNumber % 3;
+      var position = [row, column];
+
+      var currentPlayer = guiGame.player;
+      guiGame.move(position);
+
+      if (currentPlayer == "x") {
+        $(this).removeClass( "unclicked" ).addClass( "clickedX" );
+        $(this).text("X");
+      } else if (currentPlayer == "o") {
+        $(this).removeClass( "unclicked" ).addClass( "clickedO" );
+        $(this).text("O");
+      }
+
+      var winner = guiGame.winner();
+      if (winner) {
+        alert(winner.toUpperCase() + " wins!");
+      }
+
+  } );
+
+
+});
