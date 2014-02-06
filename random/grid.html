@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+
+  body, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  ul {
+    list-style: none;
+    background: red;
+    border: 10px solid blue;
+    width: 180px;
+  }
+
+  li {
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border: 5px solid gray;
+    float: left;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background: transparent;
+  }
+
+  .group:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+
+  </style>
+</head>
+<body>
+
+  <ul class="group">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</body>
+</html>
