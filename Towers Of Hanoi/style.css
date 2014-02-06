@@ -1,0 +1,46 @@
+body{
+  margin:100px;
+}
+
+.p {
+  margin: auto;
+}
+
+.board {
+  border:5px solid black;
+  display:block;
+  height:330px;
+  width:330px;
+}
+
+.square {
+  border:5px solid black;
+  display:block;
+  height:100px;
+  width:100px;
+  float:left;
+  text-align: center;
+  font-size:72pt;
+  font-family:Helvetica, sans;
+}
+
+.unclicked:hover{
+  background:gray;
+}
+
+.unclicked{
+  background:lightgray;
+}
+
+.clickedX{
+  background:salmon;
+}
+
+.clickedO{
+  background:lightblue;
+}
+
+.playerMark{
+  text-align: center;
+  margin:auto;
+}
