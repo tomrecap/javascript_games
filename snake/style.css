@@ -1,10 +1,12 @@
 body{
   margin:100px;
   font-family:Helvetica;
+  text-align: center;
 }
 
-.p {
+h2 {
   margin: auto;
+
 }
 
 .grid {
@@ -13,9 +15,29 @@ body{
   display:block;
   height:500px;
   width:500px;
-  float:left;
-  padding:20px;
+
+  padding:0px;
+  border-radius: 10px;
+  margin: 0px auto 0px auto;
 }
+
+#button{
+  display:block;
+  background: lightblue;
+  border-radius:10px;
+  width: 100px;
+
+  padding: 10px;
+  text-align: center;
+  margin: 40px auto 0px auto;
+}
+
+#button:hover{
+  box-shadow: 3px 3px 1px aliceblue;
+/*  background: aliceblue;*/
+  cursor:pointer;
+}
+
 
 li {
   list-style:none;
@@ -25,9 +47,14 @@ li {
 .cell{
   height:8px;
   width:8px;
-  border:1px solid black;
+  border:1px solid lightgray;
+  border-radius: 20px;
 }
 
 .snake {
   background-color: green;
+}
+
+.apple{
+  background-color: red;
 }
