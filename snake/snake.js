@@ -1,16 +1,22 @@
 function Snake() {
   this.direction = "E";
-  this.segments = [[26,25], [25,25]];
+  this.segments = [[30,25], [29,25], [28,25], [27,25], [26,25], [25,25]];
 };
 
+
 Snake.STEPS = {
-  'E': [1,0]
+  'N': [ 0,-1],
+  'E': [ 1, 0],
+  'S': [ 0, 1],
+  'W': [-1, 0]
 };
 
 Snake.prototype.move = function () {
   var head = this.segments[0].slice();
   var step = Snake.STEPS[this.direction];
+
   head = [head[0] + step[0], head[1] + step[1]];
+
   this.segments.unshift(head);
   this.segments.pop();
 }
@@ -47,16 +53,39 @@ Board.prototype.render = function () {
   });
 };
 
+Board.prototype.gameOver = function () {
+  var head = this.snake.segments[0].slice();
 
-  var board = new Board();
+  if (head[0] < 0 || head[0] > 49 || head[1] < 0 || head[1] > 49) {
+    return true;
+  };
 
+  return false;
+};
+
+
+var board = new Board();
 
 $(document).ready( function() {
 
   board.drawGrid();
+  board.render();
 
   $('body').on('click', function() {
+
+    key('up', function(){ board.snake.direction = "N" });
+    key('right', function(){ board.snake.direction = "E" });
+    key('down', function(){ board.snake.direction = "S" });
+    key('left', function(){ board.snake.direction = "W" });
+
     board.snake.move();
-    board.render();
+
+
+    if (board.gameOver()) {
+      alert("You Lose!");
+      $('body').off('click');
+    } else {
+      board.render();
+    };
   })
 });
