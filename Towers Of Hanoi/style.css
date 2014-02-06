@@ -1,5 +1,6 @@
 body{
   margin:100px;
+  font-family:Helvetica;
 }
 
 .p {
@@ -7,13 +8,16 @@ body{
 }
 
 .board {
-  border:5px solid black;
+/*  border:1px solid black;*/
+  background:lightgray;
   display:block;
-  height:330px;
-  width:330px;
+  height:100px;
+  width:340px;
+  float:left;
+  padding:20px;
 }
 
-.square {
+/*.square {
   border:5px solid black;
   display:block;
   height:100px;
@@ -22,25 +26,46 @@ body{
   text-align: center;
   font-size:72pt;
   font-family:Helvetica, sans;
+}*/
+
+.col{
+  width:100px;
+  float:left;
+  display:block;
+  padding:0 5px 5px 5px;
 }
 
-.unclicked:hover{
-  background:gray;
+.cell{
+  height:30px;
+/*  padding:10px 5px;*/
+  border-radius:5px;
+  margin: 2px auto;
 }
 
-.unclicked{
-  background:lightgray;
+.cell[data-size="0"]{
+  background:red;
+  height:30px;
+  width:0px;
 }
 
-.clickedX{
-  background:salmon;
+.cell[data-size="1"]{
+  background:blue;
+  width:50px;
+
 }
 
-.clickedO{
-  background:lightblue;
+.cell[data-size="2"]{
+  background:yellow;
+  width:75px;
 }
 
-.playerMark{
-  text-align: center;
-  margin:auto;
+.cell[data-size="3"]{
+  background:green;
+  width:100px;
+}
+
+.clicked{
+  /*border-right: 1px solid salmon;
+  border-left: 1px solid salmon;*/
+  background:aliceblue;
 }
