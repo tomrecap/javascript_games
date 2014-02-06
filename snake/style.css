@@ -1,0 +1,33 @@
+body{
+  margin:100px;
+  font-family:Helvetica;
+}
+
+.p {
+  margin: auto;
+}
+
+.grid {
+/*  border:1px solid black;*/
+  background:lightgray;
+  display:block;
+  height:500px;
+  width:500px;
+  float:left;
+  padding:20px;
+}
+
+li {
+  list-style:none;
+  float:left;
+}
+
+.cell{
+  height:8px;
+  width:8px;
+  border:1px solid black;
+}
+
+.snake {
+  background-color: green;
+}
