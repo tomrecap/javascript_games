@@ -5,10 +5,10 @@ This is a collection of games that I built while learning JavaScript. It include
 * Tic-tac-toe
 * Towers of Hanoi
 * Snake
-I built it while pair-programming with  @roma198808. It was a fully collaborative effort, though his name got attached to the commits.
+I built it while pair-programming with  [Roman Sycheuski](https://github.com/Roma198808). It was a fully collaborative effort, though his name got attached to the commits.
 
 ##Snake
-We built this from scratch using HTML, CSS, and jQuery. It uses madrobby/keymaster to bind to the arrow keys for input. The snake can move in four directions and it will die by colliding with itself if it tries to turn 180˚. There are red apples that the snake can eat to grow. The HTML page includes a score tracker and a button to start a new game (using jQuery, without reloading the page). 
+We built this from scratch using HTML, CSS, and jQuery. It uses [madrobby/keymaster](https://github.com/madrobby/keymaster) to bind to the arrow keys for input. The snake can move in four directions and it will die by colliding with itself if it tries to turn 180˚. There are red apples that the snake can eat to grow. The HTML page includes a score tracker and a button to start a new game (using jQuery, without reloading the page). 
 
 ## Tic-tac-toe
 We took existing code for a Node.js-based, command line tic-tac-to game and built a GUI for it using jQuery and CSS.
