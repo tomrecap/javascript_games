@@ -2,9 +2,9 @@ JavaScript Games
 ================
 
 This is a collection of games that I built while learning JavaScript. It includes:
+* Snake
 * Tic-tac-toe
 * Towers of Hanoi
-* Snake
 
 I built it while pair-programming with  [Roman Sycheuski](https://github.com/Roma198808). It was a fully collaborative effort, though his name got attached to the commits.
 
